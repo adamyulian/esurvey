@@ -19,7 +19,7 @@ class EditKendaraan extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\ViewAction::make(),
+            // Actions\ViewAction::make(),
             Actions\DeleteAction::make()
                 ->hidden(Auth::user()->name !== 'admin'),
         ];

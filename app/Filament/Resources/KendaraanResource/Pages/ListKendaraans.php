@@ -27,7 +27,7 @@ class ListKendaraans extends ListRecords
             'Belum Survey' => Tab::make()
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('kondisi_riil', NULL)),
             'Draft Survey' => Tab::make()
-                ->modifyQueryUsing(fn (Builder $query) => $query->where('is_published', true)->whereNotNull('kondisi_riil')),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('is_published', false)->whereNotNull('kondisi_riil')),
             'Survey Rilis' => Tab::make()
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('is_published', true)),
         ];

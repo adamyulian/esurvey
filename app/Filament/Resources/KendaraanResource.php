@@ -103,7 +103,7 @@ class KendaraanResource extends Resource
                                     ->native(false)
                                     ->searchable(),
                                     Forms\Components\Select::make('lokasi')
-                                    ->hiddenOn('edit')
+                                    ->disabledOn('edit')
                                     ->required()
                                     ->native(false)
                                     ->searchable()
@@ -194,7 +194,7 @@ class KendaraanResource extends Resource
                                         'Kantor BAGIAN ORGANISASI'=>'Kantor BAGIAN ORGANISASI',
                                     ]),
                                     Forms\Components\Select::make('penyelia')
-                                        ->hiddenOn('edit')
+                                        ->disabledOn('edit')
                                         ->required()
                                         ->native(false)
                                         ->searchable()
@@ -211,7 +211,7 @@ class KendaraanResource extends Resource
                                             ]
                                         ),
                                     Forms\Components\Select::make('sesi')
-                                            ->hiddenOn('edit')
+                                            ->disabledOn('edit')
                                             ->required()
                                             ->native(false)
                                             ->searchable()
@@ -223,7 +223,7 @@ class KendaraanResource extends Resource
                                             ->disabledOn('edit')
                                             ->required(),
                                     Forms\Components\TextInput::make('deskripsi')
-                                            ->hiddenOn('edit')
+                                            ->disabledOn('edit')
                                             ->required(),
                                     Forms\Components\Select::make('jenis')
                                             ->disabledOn('edit')
@@ -235,7 +235,7 @@ class KendaraanResource extends Resource
                                                 'Roda 4' => 'Roda 4'
                                             ]),
                                     Forms\Components\TextInput::make('nama')
-                                            ->hiddenOn('edit')
+                                            ->disabledOn('edit')
                                             ->required(),
                                     Forms\Components\TextInput::make('merk')
                                             ->disabledOn('edit')
@@ -248,7 +248,7 @@ class KendaraanResource extends Resource
                                             ->required()
                                             ->numeric(),
                                     Forms\Components\Select::make('kondisi')
-                                            ->hiddenOn('edit')
+                                            ->disabledOn('edit')
                                             ->required()
                                             ->native(false)
                                             ->searchable()
@@ -258,7 +258,7 @@ class KendaraanResource extends Resource
                                                 'RB' => 'Rusak Berat'
                                             ]),
                                     Forms\Components\Select::make('kategori')
-                                            ->hiddenOn('edit')
+                                            ->disabledOn('edit')
                                             ->required()
                                             ->native(false)
                                             ->searchable()
@@ -269,7 +269,7 @@ class KendaraanResource extends Resource
                                                 'KENDARAAN PATROLI'=>'KENDARAAN PATROLI',
                                             ]),
                                     Forms\Components\TextInput::make('no_mesin')
-                                            ->hiddenOn('edit')
+                                            ->disabledOn('edit')
                                             ->required(),
                                     Forms\Components\TextInput::make('no_rangka')
                                             ->disabledOn('edit')
@@ -278,7 +278,7 @@ class KendaraanResource extends Resource
                                             ->disabledOn('edit')
                                             ->required(),
                                     Forms\Components\TextInput::make('nilai_perolehan')
-                                            ->hiddenOn('edit')
+                                            ->disabledOn('edit')
                                             ->required(),
                                         ]),
                             Tab::make('Form Survey')
@@ -335,6 +335,15 @@ class KendaraanResource extends Resource
 
                                         ->image()
                                         ->hiddenOn('create'),
+                                Forms\Components\TextInput::make('no_mesin')
+                                        ->disabledOn('edit')
+                                        ->required(),
+                                Forms\Components\TextInput::make('no_rangka')
+                                        ->disabledOn('edit')
+                                        ->required(),
+                                Forms\Components\TextInput::make('nokasin')
+                                        ->label('No. Rangka/Mesin Baru')
+                                        ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_nokanosin')
 
                                         ->image()
@@ -357,18 +366,20 @@ class KendaraanResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('opd')
                     ->searchable()
-                    ->wrap(),
+                    ->wrap()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('lokasi')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('penyelia')
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: false),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('sesi')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('register')
                     ->searchable()
+                    ->wrap()
                     ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('deskripsi')
                     ->searchable()
@@ -418,7 +429,7 @@ class KendaraanResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                // Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make()
                 ->label('Survey'),
             ])

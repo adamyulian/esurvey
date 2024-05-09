@@ -10,9 +10,27 @@ class Kendaraan extends Model
 {
     use HasFactory;
 
-    use HasDrafts;
-
     protected $fillable = [
+            //Informasi Kendaraan
+            'opd',
+            'lokasi',
+            'penyelia',
+            'sesi',
+            'register',
+            'deskripsi',
+            'jenis',
+            'nama',
+            'merk',
+            'tipe',
+            'tahun_pengadaan',
+            'kondisi',
+            'kategori',
+            'no_mesin',
+            'no_rangka',
+            'nopol',
+            'nilai_perolehan',
+
+            //survey
             'kondisi_riil',
             'penanggung_jawab',
             'jabatan',

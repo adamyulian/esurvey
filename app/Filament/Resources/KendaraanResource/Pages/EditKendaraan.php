@@ -12,8 +12,6 @@ class EditKendaraan extends EditRecord
 
 {
 
-    use Draftable;
-
     protected static string $resource = KendaraanResource::class;
 
     protected static ?string $title = 'Halaman Survey';

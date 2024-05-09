@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class KendaraanResource extends Resource
 {
-    use Draftable;
 
     protected static ?string $model = Kendaraan::class;
 

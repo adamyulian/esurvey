@@ -9,7 +9,6 @@ use Guava\FilamentDrafts\Admin\Resources\Pages\Create\Draftable;
 
 class CreateKendaraan extends CreateRecord
 {
-    use Draftable;
 
     protected static string $resource = KendaraanResource::class;
 }

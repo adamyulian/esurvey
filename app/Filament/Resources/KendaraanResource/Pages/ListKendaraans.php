@@ -10,7 +10,6 @@ use Guava\FilamentDrafts\Admin\Resources\Pages\List\Draftable;
 class ListKendaraans extends ListRecords
 {
 
-    use Draftable;
 
     protected static string $resource = KendaraanResource::class;
 

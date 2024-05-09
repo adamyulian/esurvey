@@ -22,6 +22,8 @@ class KendaraanResource extends Resource
 
     protected static ?string $model = Kendaraan::class;
 
+    protected static ?string $recordTitleAttribute = 'kendaraan';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -31,6 +33,7 @@ class KendaraanResource extends Resource
                 Tabs::make('Tabs')
                     ->tabs([
                         Tab::make('Informasi Kendaraan')
+                            ->columnSpanFull()
                             ->schema([
                                 Forms\Components\Select::make('opd')
                                     ->disabledOn('edit')
@@ -279,6 +282,7 @@ class KendaraanResource extends Resource
                                             ->required(),
                                         ]),
                             Tab::make('Form Survey')
+                                ->columnSpanFull()
                                 ->schema([
                                     Forms\Components\Select::make('kondisi_riil')
                                         ->required()
@@ -291,10 +295,8 @@ class KendaraanResource extends Resource
                                             'RB' => 'Rusak Berat'
                                         ]),
                                 Forms\Components\TextInput::make('penanggung_jawab')
-                                        ->required()
                                         ->hiddenOn('create'),
                                 Forms\Components\Select::make('jabatan')
-                                        ->required()
                                         ->native(false)
                                         ->options([
                                             'Staff' => 'Staff',
@@ -307,24 +309,19 @@ class KendaraanResource extends Resource
                                         ])
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('bidang')
-                                        ->required()
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('bbm')
-                                        ->required()
                                         ->numeric()
                                         ->suffix('Liter')
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('pemakaian')
-                                        ->required()
                                         ->numeric()
                                         ->suffix('Jam/Hari')
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('angka_speedometer')
-                                        ->required()
                                         ->numeric()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_speedometer')
-
                                         ->image()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_mesin')
@@ -342,8 +339,11 @@ class KendaraanResource extends Resource
 
                                         ->image()
                                         ->hiddenOn('create'),
+                                Forms\Components\Toggle::make('is_published')
+                                        ->label('Survey Dirilis')
                                 ])
                                 ->hiddenOn('create')
+                                
 
                     ])
                     ->activeTab(2),
@@ -363,19 +363,19 @@ class KendaraanResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('penyelia')
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('sesi')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('register')
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('deskripsi')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('jenis')
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -385,7 +385,8 @@ class KendaraanResource extends Resource
                 Tables\Columns\TextColumn::make('nopol')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tipe')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('tahun_pengadaan')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -399,7 +400,8 @@ class KendaraanResource extends Resource
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('no_rangka')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('nilai_perolehan')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),

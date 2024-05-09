@@ -380,13 +380,13 @@ class KendaraanResource extends Resource
                 Tables\Columns\TextColumn::make('register')
                     ->searchable()
                     ->wrap()
-                    ->toggleable(isToggledHiddenByDefault: false),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('deskripsi')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('jenis')
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: false),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -394,7 +394,11 @@ class KendaraanResource extends Resource
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('nopol')
-                    ->searchable(),
+                    ->wrap()
+                    ->searchable()
+                    ->description(function (Kendaraan $record): string {
+                        return $record->jenis . ' - ' . $record->register;
+                    }),
                 Tables\Columns\TextColumn::make('tipe')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),

@@ -25,11 +25,14 @@ class ListKendaraans extends ListRecords
     {
         return [
             'Belum Survey' => Tab::make()
-                ->modifyQueryUsing(fn (Builder $query) => $query->where('kondisi_riil', NULL)),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('kondisi_riil', NULL))
+                ->icon('heroicon-m-document-minus'),
             'Draft Survey' => Tab::make()
-                ->modifyQueryUsing(fn (Builder $query) => $query->where('is_published', false)->whereNotNull('kondisi_riil')),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('is_published', false)->whereNotNull('kondisi_riil'))
+                ->icon('heroicon-m-pencil-square'),
             'Survey Rilis' => Tab::make()
-                ->modifyQueryUsing(fn (Builder $query) => $query->where('is_published', true)),
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('is_published', true))
+                ->icon('heroicon-m-document-check'),
         ];
     }
 }

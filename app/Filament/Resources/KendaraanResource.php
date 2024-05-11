@@ -345,6 +345,9 @@ class KendaraanResource extends Resource
                                 Forms\Components\TextInput::make('nokasin')
                                         ->label('No. Rangka/Mesin Baru')
                                         ->hiddenOn('create'),
+                                Forms\Components\Textarea::make('keterangan')
+                                        ->label('Catatan Pengecekan')
+                                        ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_nokanosin')
 
 
@@ -422,6 +425,12 @@ class KendaraanResource extends Resource
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('no_rangka')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('nokasin')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('keterangan')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('nilai_perolehan')

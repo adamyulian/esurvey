@@ -274,6 +274,12 @@ class KendaraanResource extends Resource
                                     Forms\Components\TextInput::make('nopol')
                                             ->disabledOn('edit')
                                             ->required(),
+                                    Forms\Components\TextInput::make('nopol2')
+                                            ->disabledOn('edit')
+                                            ->required(),
+                                    Forms\Components\TextInput::make('nopol3')
+                                            ->disabledOn('edit')
+                                            ->required(),
                                     Forms\Components\TextInput::make('nilai_perolehan')
                                             ->disabledOn('edit')
                                             ->required(),
@@ -394,7 +400,7 @@ class KendaraanResource extends Resource
                     ->wrap()
                     ->searchable()
                     ->description(function (Kendaraan $record): string {
-                        return $record->jenis . ' - ' . $record->register;
+                        return $record->jenis . ' - ' . $record->nopol2 . ' - ' . $record->register . ' - ' . $record->nopol3;
                     }),
                 Tables\Columns\TextColumn::make('tipe')
                     ->searchable()

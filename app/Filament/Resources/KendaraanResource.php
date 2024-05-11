@@ -275,11 +275,9 @@ class KendaraanResource extends Resource
                                             ->disabledOn('edit')
                                             ->required(),
                                     Forms\Components\TextInput::make('nopol2')
-                                            ->disabledOn('edit')
-                                            ->required(),
+                                            ->disabledOn('edit'),
                                     Forms\Components\TextInput::make('nopol3')
-                                            ->disabledOn('edit')
-                                            ->required(),
+                                            ->disabledOn('edit'),
                                     Forms\Components\TextInput::make('nilai_perolehan')
                                             ->disabledOn('edit')
                                             ->required(),

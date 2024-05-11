@@ -257,7 +257,6 @@ class KendaraanResource extends Resource
                                             ]),
                                     Forms\Components\Select::make('kategori')
                                             ->disabledOn('edit')
-                                            ->required()
                                             ->native(false)
                                             ->searchable()
                                             ->options([

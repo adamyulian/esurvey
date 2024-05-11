@@ -396,6 +396,12 @@ class KendaraanResource extends Resource
                 Tables\Columns\TextColumn::make('merk')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('nopol2')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('nopol3')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('nopol')
                     ->wrap()
                     ->searchable()

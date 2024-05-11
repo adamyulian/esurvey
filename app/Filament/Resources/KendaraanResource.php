@@ -22,8 +22,6 @@ class KendaraanResource extends Resource
 
     protected static ?string $model = Kendaraan::class;
 
-    protected static ?string $recordTitleAttribute = 'kendaraan';
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -322,18 +320,18 @@ class KendaraanResource extends Resource
                                         ->numeric()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_speedometer')
-                                        ->image()
+
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_mesin')
-                                        ->image()
+
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_interior')
 
-                                        ->image()
+
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_eksterior')
 
-                                        ->image()
+
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('no_mesin')
                                         ->disabledOn('edit')
@@ -346,13 +344,13 @@ class KendaraanResource extends Resource
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_nokanosin')
 
-                                        ->image()
+
                                         ->hiddenOn('create'),
                                 Forms\Components\Toggle::make('is_published')
                                         ->label('Survey Dirilis')
                                 ])
                                 ->hiddenOn('create')
-                                
+
 
                     ])
                     ->activeTab(2),

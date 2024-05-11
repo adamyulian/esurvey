@@ -44,6 +44,7 @@ class Kendaraan extends Model
             'gambar_eksterior',
             'gambar_nokanosin',
             'nokasin',
+            'keterangan',
             'is_published'
     ];
 }

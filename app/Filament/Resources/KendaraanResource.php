@@ -326,17 +326,16 @@ class KendaraanResource extends Resource
                                         ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_mesin')
-                                ->downloadable()
+                                ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_interior')
 
-                                ->downloadable()
+                                ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_eksterior')
-                                ->downloadable()
+                                ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('no_mesin')
-                                ->downloadable()
                                         ->disabledOn('edit')
                                         ->required(),
                                 Forms\Components\TextInput::make('no_rangka')
@@ -349,7 +348,7 @@ class KendaraanResource extends Resource
                                         ->label('Catatan Pengecekan')
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_nokanosin')
-
+                                            ->openable()
 
                                         ->hiddenOn('create'),
                                 Forms\Components\Toggle::make('is_published')

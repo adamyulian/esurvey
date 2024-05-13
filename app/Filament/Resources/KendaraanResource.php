@@ -323,20 +323,20 @@ class KendaraanResource extends Resource
                                         ->numeric()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_speedometer')
-
+                                        ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_mesin')
-
+                                ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_interior')
 
-
+                                ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_eksterior')
-
-
+                                ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('no_mesin')
+                                ->openable()
                                         ->disabledOn('edit')
                                         ->required(),
                                 Forms\Components\TextInput::make('no_rangka')

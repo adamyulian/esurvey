@@ -326,17 +326,17 @@ class KendaraanResource extends Resource
                                         ->openable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_mesin')
-                                ->openable()
+                                ->downloadable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_interior')
 
-                                ->openable()
+                                ->downloadable()
                                         ->hiddenOn('create'),
                                 Forms\Components\FileUpload::make('gambar_eksterior')
-                                ->openable()
+                                ->downloadable()
                                         ->hiddenOn('create'),
                                 Forms\Components\TextInput::make('no_mesin')
-                                ->openable()
+                                ->downloadable()
                                         ->disabledOn('edit')
                                         ->required(),
                                 Forms\Components\TextInput::make('no_rangka')

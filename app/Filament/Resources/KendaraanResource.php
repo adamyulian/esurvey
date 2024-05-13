@@ -2,20 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KendaraanResource\Pages;
-use App\Filament\Resources\KendaraanResource\RelationManagers;
-use App\Models\Kendaraan;
+use App\Filament\Exports\KendaraanExporter;
 use Filament\Forms;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Tabs\Tab;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\Kendaraan;
 use Filament\Tables\Table;
-use Guava\FilamentDrafts\Admin\Resources\Concerns\Draftable;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Tabs;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Tabs\Tab;
+use Filament\Tables\Actions\ExportAction;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\KendaraanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Guava\FilamentDrafts\Admin\Resources\Concerns\Draftable;
+use App\Filament\Resources\KendaraanResource\RelationManagers;
 
 class KendaraanResource extends Resource
 {
@@ -366,6 +368,10 @@ class KendaraanResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->headerActions([
+                ExportAction::make()
+                    ->exporter(KendaraanExporter::class)
+            ])
             ->columns([
                 Tables\Columns\TextColumn::make('opd')
                     ->searchable()
